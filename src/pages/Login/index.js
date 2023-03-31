@@ -24,7 +24,6 @@ export function Login() {
 
     try {
       const response = await api.post("/user/login", form);
-      console.log(response, "teste___");
       setLoggedInUser({ ...response.data });
 
       localStorage.setItem("loggedInUser", JSON.stringify(response.data));
@@ -39,13 +38,14 @@ export function Login() {
     <div class="flex min-h-full items-center justify-center px-4 sm:px-6 bg-[#F9E4D4] h-screen flex-row space-x-10">
       <div class="border-orange-400 border-solid border p-16 mr-48  rounded-2xl bg-[#ffb592] shadow-2xl shadow ">
         <div class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 w-full max-w-md space-y-8">
-          <h1>Bem Vindos ao Narani</h1>
+          <h1>Bem Vindos</h1>
         </div>
         <form
           onSubmit={handleSumit}
           class="mt-8 space-y-6"
           action="#"
-          method="POST">
+          method="POST"
+        >
           <label for="email-address" class="sr-only">
             Email:
           </label>

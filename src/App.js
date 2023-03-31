@@ -10,6 +10,7 @@ import { ProtectedAdminRoute } from "./components/ProtectedAdminRoute";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { EditFood } from "./pages/EditFood";
 import { FoodDetails } from "./pages/FoodDetails";
+import { Home } from "./pages/Home";
 
 import { YourOrder } from "./pages/Order";
 import { FinishOrder } from "./pages/finishOrder";
@@ -23,7 +24,7 @@ function App() {
       <AuthContextComponent>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/itensmenu" element={<ItensMenu />} />
           <Route path="/signup" element={<Signup />} />
 
@@ -66,6 +67,7 @@ function App() {
             element={<ProtectedRoute component={FinishOrder} />}
           />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </AuthContextComponent>
     </>
