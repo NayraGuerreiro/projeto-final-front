@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../images/surshista.PNG";
 
 export function NavBar() {
   const { loggedInUser, setLoggedInUser } = useContext(AuthContext);
@@ -15,20 +14,22 @@ export function NavBar() {
   }
 
   return (
-    <div class="relative flex h-12 items-center bg-[#db6916] px-3 justify-between ">
-      <div>
-        <img class="w-10 overflow-hidden" alt="logo" src={logo} />
-      </div>
-      <div class="relative flex h-12 items-center justify-around w-1/3 text-white  ">
+    <div
+      class="relative flex h-12 items-center bg-[#88001b] px-1 justify-center "
+      style={{ fontFamily: "Macondo" }}
+    >
+      <div class="relative flex h-12 items-center justify-around w-1/2 text-white  ">
         <Link
           to="/"
-          class="hover:bg-[#e09e6e] block rounded-md px-3 py-2 text-base font-medium"
+          class="hover:bg-[#6f0016] block rounded-md px-3 py-2 text-base "
+          style={{ fontSize: "25px" }}
         >
           Home
         </Link>
         <Link
           to="/ItensMenu"
-          class="hover:bg-[#e09e6e]  block rounded-md px-3 py-2 text-base font-medium text-white"
+          class="hover:bg-[#6f0016]  block rounded-md px-3 py-2 text-base text-white"
+          style={{ fontSize: "25px" }}
         >
           Menu
         </Link>
@@ -36,14 +37,16 @@ export function NavBar() {
           <>
             <Link
               to="/finishOrder"
-              class="hover:bg-[#e09e6e]  block rounded-md px-3 py-2 text-base font-medium text-white"
+              class="hover:bg-[#6f0016]  block rounded-md px-3 py-2 text-base text-white"
+              style={{ fontSize: "25px" }}
             >
               Acompanhe seus Pedidos
             </Link>
             <div>
               <button
                 onClick={handleLoggout}
-                class="hover:bg-[#e09e6e]  block rounded-md px-3 py-2 text-base font-medium text-white"
+                class="hover:bg-[#6f0016]  block rounded-md px-3 py-2 text-base  text-white"
+                style={{ fontSize: "25px" }}
               >
                 Sair
               </button>
@@ -55,7 +58,8 @@ export function NavBar() {
           <>
             <Link
               to="/"
-              class="hover:bg-[#e09e6e]  block rounded-md px-3 py-2 text-base font-medium text-white"
+              class="hover:bg-[#6f0016]  block rounded-md px-3 py-2 text-base  text-white"
+              style={{ fontSize: "25px" }}
             >
               Login
             </Link>

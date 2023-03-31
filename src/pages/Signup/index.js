@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
-import sushihero from "../../images/sushihero.png";
+
 export function Signup() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -45,7 +45,6 @@ export function Signup() {
 
   return (
     <div class="flex flex-col min-h-full items-center   bg-[#F9E4D4] h-screen pb-96">
-      <img src={sushihero} alt="signUp logo" className="w-80" />
       <div className="mx-auto my-8 p-6 max-w-2xl border-4 border-gray-800 border-double rounded-md bg-[#e09e6e] shadow-2xl ">
         <form onSubmit={handleSubmit} className="space-y-8 border-black-500">
           <div className="mt-6 text-left ">
@@ -102,7 +101,8 @@ export function Signup() {
           </div>
           <button
             type="submit"
-            class="place-self-center bg-[#f9e4d4] text-center font-bold border-orange-400 py-0.5 border-solid border w-1/3 ml-24 rounded-2xl pointer-events-auto">
+            class="place-self-center bg-[#f9e4d4] text-center font-bold border-orange-400 py-0.5 border-solid border w-1/3 ml-24 rounded-2xl pointer-events-auto"
+          >
             Cadastrar
           </button>
         </form>

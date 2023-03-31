@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { api } from "../../api/api";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import sushihero from "../../images/sushihero.png";
 
 function YourOrder(props) {
   const params = useParams();
@@ -43,13 +42,7 @@ function YourOrder(props) {
   //console.log(foodOrder);
   return (
     <div class="bg-[#F9E4D4] w-screen h-screen-100">
-      <div className="flex justify-items-center items-center flex-col">
-        <img
-          alt="sushihero"
-          src={sushihero}
-          className="w-1/4 h-1/4 border-spacing-0 "
-        />
-      </div>
+      <div className="flex justify-items-center items-center flex-col"></div>
       <div className="flex">
         <div className="mx-auto space-x-10 flex-3 items-stretch ">
           <Link to={`/itensmenu`}>
@@ -60,13 +53,15 @@ function YourOrder(props) {
 
           <button
             onClick={handleDelete}
-            className="mx-auto w-64 mb-8 bg-red-600 text-white p-3 font-bold rounded-full hover:bg-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-7  00  ">
+            className="mx-auto w-64 mb-8 bg-red-600 text-white p-3 font-bold rounded-full hover:bg-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-7  00  "
+          >
             Deletar
           </button>
 
           <button
             onClick={handleSubmit}
-            className="mx-auto w-64 mb-8 bg-blue-600 text-white p-3 font-bold rounded-full hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-7  00  ">
+            className="mx-auto w-64 mb-8 bg-blue-600 text-white p-3 font-bold rounded-full hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-7  00  "
+          >
             Finalizar Pedido
           </button>
         </div>

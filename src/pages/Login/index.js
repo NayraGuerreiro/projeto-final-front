@@ -3,7 +3,6 @@ import { AuthContext } from "../../contexts/authContext";
 import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import logo from "../../images/surshista.PNG";
 
 export function Login() {
   const [form, setForm] = useState({
@@ -84,7 +83,7 @@ export function Login() {
         </form>
       </div>
       <div class="w-1/3">
-        <img alt="login" src={logo} />
+        <img />
       </div>
     </div>
   );
