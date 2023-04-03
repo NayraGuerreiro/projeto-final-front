@@ -3,6 +3,7 @@ import { AuthContext } from "../../contexts/authContext";
 import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import fundo from "../../images/fundo.jpg";
 
 export function Login() {
   const [form, setForm] = useState({
@@ -34,9 +35,33 @@ export function Login() {
   }
 
   return (
-    <div class="flex min-h-full items-center justify-center px-4 sm:px-6 bg-[#F9E4D4] h-screen flex-row space-x-10">
-      <div class="border-orange-400 border-solid border p-16 mr-48  rounded-2xl bg-[#ffb592] shadow-2xl shadow ">
-        <div class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 w-full max-w-md space-y-8">
+    <div
+      className="login"
+      style={{
+        textAlign: "-webkit-center",
+        flexDirection: "column",
+        display: "flex",
+        justifyContent: "center",
+        backgroundImage: `url(${fundo})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100vw 100vh",
+        height: "96vh",
+      }}
+    >
+      <div
+        style={{
+          width: "400px",
+          alignSelf: "center",
+          textAlign: "center",
+          marginTop: "80px",
+        }}
+      >
+        <div
+          style={{
+            fontSize: "70px",
+            fontFamily: "Macondo",
+          }}
+        >
           <h1>Bem Vindos</h1>
         </div>
         <form
@@ -71,19 +96,30 @@ export function Login() {
             value={form.password}
             onChange={handleChange}
           />
-          <div class="place-self-center bg-[#f9e4d4] text-center font-bold border-orange-400 py-0.5 border-solid border w-1/3 ml-24 rounded-2xl pointer-events-auto">
-            <button type="submit">Entrar</button>
+          <div
+            style={{
+              fontSize: "25px",
+              fontFamily: "Macondo",
+              fontWeight: "bold",
+            }}
+          >
+            <button type="submit">Login</button>
           </div>
-          <div class="flex-row flex justify-between ">
-            <p class="mr-3">Ainda não tem cadastro?</p>
-            <span class="font-semibold italic antialiased">
+          <div style={{ marginTop: "4px" }}>
+            <p class="mr-3" style={{ fontFamily: "Macondo", fontSize: "20px" }}>
+              Ainda não tem cadastro?
+            </p>
+            <span
+              style={{
+                fontFamily: "Macondo",
+                fontSize: "20px",
+                fontWeight: "bolder",
+              }}
+            >
               <Link to="/signup">Clique aqui!</Link>
             </span>
           </div>
         </form>
-      </div>
-      <div class="w-1/3">
-        <img />
       </div>
     </div>
   );

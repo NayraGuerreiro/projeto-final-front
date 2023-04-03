@@ -57,7 +57,7 @@ export function NavBar() {
         {!loggedInUser && (
           <>
             <Link
-              to="/"
+              to="/login"
               class="hover:bg-[#6f0016]  block rounded-md px-3 py-2 text-base  text-white"
               style={{ fontSize: "25px" }}
             >

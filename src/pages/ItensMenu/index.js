@@ -22,14 +22,17 @@ export function ItensMenu() {
     fetchMenu();
   }, [setMenu]);
   return (
-    <div class=" bg-[#F9E4D4]">
+    <div class=" bg-[#ffecde]">
       <div class="text-center py-3 text-7xl tracking-widest font-normal antialiased border-b border-orange-300 mx-20 py-10">
-        <h1>Narani</h1>
+        <h1 style={{ fontFamily: "Macondo", marginTop: "20px" }}>Narani</h1>
 
         <div class="w-20 inline-block"></div>
 
         {loggedInUser && loggedInUser.user.role === "ADMIN" ? (
-          <div class="text-center py-3 text-2xl tracking-widest font-normal antialiased  mx-20 py-10">
+          <div
+            class="text-center py-3 text-2xl tracking-widest  antialiased  mx-20 py-10"
+            style={{ fontFamily: "Macondo" }}
+          >
             <Link to={`/createfood`}>
               <button>Criar Prato</button>
             </Link>
@@ -40,7 +43,10 @@ export function ItensMenu() {
         return (
           <div class=" px-4 border-b border-orange-300 mx-20  flex-col">
             <div class="text-center py-8">
-              <h3 class="text-2xl font-bold tracking-wider">
+              <h3
+                class="text-2xl font-bold tracking-wider"
+                style={{ fontFamily: "Macondo" }}
+              >
                 {currentMenu.prato}
               </h3>
             </div>
@@ -52,7 +58,10 @@ export function ItensMenu() {
                   src={currentMenu.imagem}
                 />
               </div>
-              <div class="w-3/5 pl-10 mt-10 mb-10">
+              <div
+                class="w-3/5 pl-10 mt-10 mb-10"
+                style={{ fontFamily: "Macondo", fontSize: "20px" }}
+              >
                 <p>
                   <b class="tracking-widest">Descrição:</b>{" "}
                   {currentMenu.descrição}
@@ -69,14 +78,33 @@ export function ItensMenu() {
                 </p>
               </div>
               <div class=" w-1/12 flex items-center justify-end">
-                <div class="hover:bg-[#e09e6e] place-self-center bg-[#db6916] text-center font-bold border-orange-100 = text-white shadow-2xl shadow-gray-900  py-0.5 border-solid border w-full ml-24 rounded pointer-events-auto">
+                <div
+                  style={{
+                    fontFamily: "Macondo",
+                    fontSize: "20px",
+                    fontWeight: "bolder",
+                    borderRadius: "10px",
+                    border: "solid 2px #f09d38",
+                    padding: "5px",
+                  }}
+                >
                   <Link to={`/details/${currentMenu._id}`}>
                     <button class="tracking-wider">Detalhes</button>
                   </Link>
                 </div>
                 {loggedInUser && loggedInUser.user.role === "ADMIN" ? (
                   <div>
-                    <div class="hover:bg-[#e09e6e] place-self-center bg-[#db6916] text-center font-bold border-orange-100 = text-white shadow-2xl shadow-gray-900  py-0.5 border-solid border w-3/4 ml-24 rounded pointer-events-auto">
+                    <div
+                      style={{
+                        fontFamily: "Macondo",
+                        fontSize: "20px",
+                        fontWeight: "bolder",
+                        borderRadius: "10px",
+                        border: "solid 2px #f09d38",
+                        padding: "5px",
+                        marginLeft: "20px",
+                      }}
+                    >
                       <Link to={`/edit/${currentMenu._id}`}>
                         <button>Gerenciar</button>
                       </Link>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../api/api";
+import detalhes from "../../images/abstract_japanese_wave_pattern_design_1606.jpg";
 
 export function FoodDetails(props) {
   const params = useParams();
@@ -32,45 +33,71 @@ export function FoodDetails(props) {
   }
   console.log(props);
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: "#ffecde",
+        backgroundSize: "100vw 100vh",
+        height: "96vh",
+        textAlign: "-webkit-center",
+      }}
+    >
       {!isLoading && (
         <>
-          <div class="flex min-h-full items-center  bg-[#F9E4D4] h-screen pb-36">
-            <div className="mx-auto max-w-xl w-auto border-4 border-slate-700 flex flex-col rounded-3xl bg-[#e09e6e] shadow-2xl ">
+          <div style={{ fontFamily: "Macondo", fontSize: "20px" }}>
+            <div>
               <img
                 alt={food.prato}
                 src={food.imagem}
-                className="rounded-xl border-2 border-slate-700 max-h-96 max-w-xl"
+                style={{
+                  width: "500px",
+                  paddingTop: "200px",
+                  paddingBottom: "10px",
+                }}
               />
-              <h1 className="pt-3 text-center text-3xl font-bold">
-                {food.prato}
-              </h1>
-              <div className="p-4">
-                <p className="pb-4">
-                  <span className="font-semibold"> Descrição:</span>{" "}
+              <h1 style={{ fontSize: "40px" }}>{food.prato}</h1>
+              <div>
+                <p>
+                  <span style={{ fontSize: "20px", fontWeight: "bolder" }}>
+                    Descrição:
+                  </span>
                   {food.descrição}
                 </p>
 
-                <div className="flex justify-between pb-6">
+                <div>
                   <p>
-                    <span className="font-semibold">Tempo de preparo: </span>
+                    <span style={{ fontSize: "20px", fontWeight: "bolder" }}>
+                      Tempo de preparo:
+                    </span>
                     {food.preparo}
                   </p>
-                  <p className="pr-7">
-                    <span className="font-semibold">Calorias:</span>{" "}
+                  <p>
+                    <span style={{ fontSize: "20px", fontWeight: "bolder" }}>
+                      Calorias:
+                    </span>
                     {food.calorias}
                   </p>
-                  <p className="pr-12">
-                    <span className="font-semibold">Porção: </span>
+                  <p>
+                    <span style={{ fontSize: "20px", fontWeight: "bolder" }}>
+                      Porção:
+                    </span>
                     {food.quantidade} porções
                   </p>
                 </div>
               </div>
-              <button
-                onClick={handleSubmit}
-                className="mx-auto w-1/4 mb-8 border-zinc-400 bg-zinc-200 p-3 font-bold rounded-full hover:bg-zinc-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-7  00  ">
-                Fazer Pedido
-              </button>
+              <div
+                style={{
+                  width: "200px",
+                  fontFamily: "Macondo",
+                  fontSize: "20px",
+                  fontWeight: "bolder",
+                  borderRadius: "10px",
+                  border: "solid 2px #f09d38",
+                  padding: "5px",
+                  marginTop: "10px",
+                }}
+              >
+                <button onClick={handleSubmit}>Fazer Pedido</button>
+              </div>
             </div>
           </div>
         </>

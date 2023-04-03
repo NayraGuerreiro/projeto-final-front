@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import portal from "../../images/portal.png";
 import cerejeira from "../../images/é essa.png";
 export function Home() {
@@ -37,18 +38,20 @@ export function Home() {
       >
         Uma experiência gastronômica que vai te surpreender
       </p>
-      <button
-        style={{
-          color: "white",
-          fontSize: "25px",
-          fontFamily: "Macondo",
-          fontWeight: "bold",
-          paddingTop: "5px",
-          paddingLeft: "35px",
-        }}
-      >
-        Entrar!
-      </button>
+      <Link to={"/login"}>
+        <button
+          style={{
+            color: "black",
+            fontSize: "25px",
+            fontFamily: "Macondo",
+            fontWeight: "bold",
+            paddingTop: "5px",
+            paddingLeft: "35px",
+          }}
+        >
+          Entrar!
+        </button>
+      </Link>
     </div>
   );
 }

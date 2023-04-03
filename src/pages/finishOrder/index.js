@@ -19,11 +19,9 @@ function FinishOrder() {
   }, []);
   console.log(orders);
   return (
-    <div class=" bg-[#F9E4D4] w-screen h-screen-100">
-      <div className="flex justify-items-center items-center flex-col"></div>
-      <div className="mx-auto w-64 mb-8 bg-lime-600 text-white p-3 font-bold rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-7  00 items-center justify-center flex ">
-        MEUS PEDIDOS
-      </div>
+    <div>
+      <div></div>
+      <div>MEUS PEDIDOS</div>
 
       <div className="flex justify-items-center items-center flex-col">
         {orders.map((currentOrder) => {
