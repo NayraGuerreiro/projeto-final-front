@@ -38,7 +38,13 @@ export function NavBar() {
             <Link
               to="/finishOrder"
               class="hover:bg-[#6f0016]  block rounded-md px-3 py-2 text-base text-white"
-              style={{ fontSize: "25px" }}
+              style={{
+                fontSize: "25px",
+                textOverflow: "ellipsis",
+                overflow: "hidden",
+                whiteSpace: "nowrap",
+                minWidth: "150px",
+              }}
             >
               Acompanhe seus Pedidos
             </Link>

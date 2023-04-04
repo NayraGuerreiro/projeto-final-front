@@ -1,17 +1,26 @@
 import { Link } from "react-router-dom";
 export function ErrorPage() {
   return (
-    <div class="flex min-h-full items-center justify-center px-4 sm:px-6 bg-[#F9E4D4] h-screen flex-row space-x-10">
-      <div class="border-orange-400 border-solid border p-16 mr-48  rounded-2xl bg-[#ffb592] shadow-2xl ">
-        <h1 className=" font-bold text-7xl">SORRY</h1>
-        <h2 className="text-4xl">We Couldn'd find that page</h2>
-        <p className="text-xl">
-          try searching or go to{" "}
-          <Link to="/" className=" text-blue-700">
-            NARANI's home page
-          </Link>
-        </p>
-      </div>
+    <div
+      style={{
+        textAlign: "center",
+        paddingTop: "200px",
+        fontFamily: "Macondo",
+        background: "#ffecde",
+        height: "100vh",
+      }}
+    >
+      <h1 style={{ fontSize: "70px" }}>Desculpe,</h1>
+      <span style={{ fontSize: "30px" }}>Não encontramos essa página</span>
+      <p style={{ fontSize: "40px" }}>
+        verifique se o endereço está correto, se quiser retornar ao início
+        clique no link abaixo
+      </p>
+      <span style={{ fontSize: "30px" }}>
+        <Link to="/" className=" text-blue-700">
+          NARANI's home page
+        </Link>
+      </span>
     </div>
   );
 }

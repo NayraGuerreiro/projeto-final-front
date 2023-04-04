@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
+import fundo from "../../images/fundo.jpg";
 
 export function Signup() {
   const navigate = useNavigate();
@@ -11,32 +12,15 @@ export function Signup() {
     confirmPassword: "",
   });
 
-  // const [img] = useState("");
-
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
-  /*
-  async function handleUpload() {
-    try {
-      const uploadData = new FormData();
-      uploadData.append("picture", img);
 
-      const response = await api.post("/upload-image", uploadData);
-
-      return response.data.url;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-*/
   async function handleSubmit(e) {
     e.preventDefault();
 
     try {
-      //const imgURL = await handleUpload();
       await api.post("/user/signup", { ...form });
-      //await api.post("/user/signup", { ...form, img: imgURL });
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -44,67 +28,91 @@ export function Signup() {
   }
 
   return (
-    <div class="flex flex-col min-h-full items-center   bg-[#F9E4D4] h-screen pb-96">
-      <div className="mx-auto my-8 p-6 max-w-2xl border-4 border-gray-800 border-double rounded-md bg-[#e09e6e] shadow-2xl ">
-        <form onSubmit={handleSubmit} className="space-y-8 border-black-500">
-          <div className="mt-6 text-left ">
-            <label htmlFor="formName" className="font-semibold">
-              Nome:
-            </label>
-            <input
-              id="formName"
-              name="name"
-              type="text"
-              value={form.name}
-              onChange={handleChange}
-              class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
-          </div>
-          <div className="mt-6 text-left ">
-            <label htmlFor="formEmail" className="font-semibold">
-              E-mail:
-            </label>
-            <input
-              id="formEmail"
-              name="email"
-              type="email"
-              value={form.email}
-              onChange={handleChange}
-              class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
-          </div>
-          <div className="mt-6 text-left ">
-            <label htmlFor="formPassword" className="font-semibold">
-              Senha:
-            </label>
-            <input
-              id="formPassword"
-              name="password"
-              type="password"
-              value={form.password}
-              onChange={handleChange}
-              class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
-          </div>
-          <div className="mt-6 text-left ">
-            <label htmlFor="formConfirmPassword" className="font-semibold">
-              Confirmação de senha
-            </label>
-            <input
-              id="formConfirmPassword"
-              type="password"
-              name="confirmPassword"
-              value={form.confirmPassword}
-              onChange={handleChange}
-              class="relative block w-80 rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
-          </div>
-          <button
-            type="submit"
-            class="place-self-center bg-[#f9e4d4] text-center font-bold border-orange-400 py-0.5 border-solid border w-1/3 ml-24 rounded-2xl pointer-events-auto"
+    <div
+      style={{
+        textAlign: "-webkit-center",
+        flexDirection: "column",
+        display: "flex",
+        justifyContent: "center",
+        backgroundImage: `url(${fundo})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100vw 100vh",
+        height: "96vh",
+      }}
+    >
+      <div
+        style={{
+          fontSize: "70px",
+          fontFamily: "Macondo",
+          paddingTop: "120px",
+        }}
+      >
+        <h1>Cadastro</h1>
+      </div>
+      <div style={{ width: "400px", alignSelf: "center" }}>
+        <form
+          onSubmit={handleSubmit}
+          class="mt-8 space-y-6"
+          action="#"
+          method="POST"
+        >
+          <input
+            id="formName"
+            placeholder="Nome"
+            name="name"
+            type="text"
+            class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            value={form.name}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="formEmail" class="sr-only">
+            E-mail:
+          </label>
+          <input
+            id="formEmail"
+            name="email"
+            placeholder="E-mail"
+            type="email"
+            class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            value={form.email}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="formPassword" class="sr-only">
+            Senha:
+          </label>
+          <input
+            id="formPassword"
+            name="password"
+            placeholder="Senha"
+            type="password"
+            class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            value={form.password}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="formConfirmPassword" class="sr-only">
+            Confirmação de senha
+          </label>
+          <input
+            id="formConfirmPassword"
+            type="password"
+            placeholder="Confirme a Senha"
+            name="confirmPassword"
+            class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            value={form.confirmPassword}
+            onChange={handleChange}
+          />
+          <div
+            style={{
+              fontFamily: "Macondo",
+              fontSize: "20px",
+              fontWeight: "bolder",
+            }}
           >
-            Cadastrar
-          </button>
+            <button type="submit">Finalizar Cadastro</button>
+          </div>
         </form>
       </div>
     </div>

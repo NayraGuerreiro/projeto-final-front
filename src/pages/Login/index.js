@@ -71,7 +71,7 @@ export function Login() {
           method="POST"
         >
           <label for="email-address" class="sr-only">
-            Email:
+            E-mail:
           </label>
           <input
             id="email-address"

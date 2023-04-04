@@ -34,8 +34,8 @@ function YourOrder(props) {
     <div
       style={{
         backgroundColor: "#ffecde",
-        backgroundSize: "100vw 100vh",
-        height: "96vh",
+        backgroundSize: "100vw 80vh",
+        height: "90vh",
         textAlign: "-webkit-center",
         fontFamily: "Mocondo",
         fontSize: "20px",
@@ -50,7 +50,8 @@ function YourOrder(props) {
         style={{
           backgroundColor: "#ffecde",
           paddingTop: "30px",
-          paddingBottom: "10px",
+          paddingBottom: "0px",
+          minHeight: "79vh",
         }}
       >
         {props.props.foodOrder &&
@@ -118,14 +119,14 @@ function YourOrder(props) {
       </div>
       <div
         style={{
-          height: "80px",
+          height: "44px",
           fontFamily: "Macondo",
           fontSize: "20px",
           fontWeight: "bolder",
-          padding: "23px",
           justifyContent: "space-around",
           alignItems: "center",
           display: "flex",
+          backgroundColor: "burlywood",
         }}
       >
         <Link to={`/itensmenu`}>

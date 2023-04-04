@@ -12,7 +12,7 @@ export function ProtectedRoute(props) {
   useEffect(() => {
     console.log(parsedUser);
     if (!parsedUser.token) {
-      navigate("/");
+      navigate("/login");
     }
   }, [navigate, parsedUser]);
 

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../api/api";
-import detalhes from "../../images/abstract_japanese_wave_pattern_design_1606.jpg";
 
 export function FoodDetails(props) {
   const params = useParams();
@@ -50,7 +49,7 @@ export function FoodDetails(props) {
                 src={food.imagem}
                 style={{
                   width: "500px",
-                  paddingTop: "200px",
+                  paddingTop: "100px",
                   paddingBottom: "10px",
                 }}
               />

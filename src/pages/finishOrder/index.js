@@ -19,33 +19,62 @@ function FinishOrder() {
   }, []);
   console.log(orders);
   return (
-    <div>
-      <div></div>
-      <div>MEUS PEDIDOS</div>
-
-      <div className="flex justify-items-center items-center flex-col">
-        {orders.map((currentOrder) => {
-          return currentOrder.pedido.map((food) => {
-            return (
-              <div className="flex flex-col max-auto my-8 bg-[#e09e6e] border-2 border-orange-500  rounded-3xl">
-                <img
-                  alt={food.prato}
-                  src={food.imagem}
-                  className="rounded-xl border-2 border-orange-500 w-96"
-                />
-                <h1 className="pt-3 text-center text-3xl font-bold w-96">
-                  {food.prato}
-                </h1>
-
-                <p className="pb-4 text-center font-semibold">
-                  <span>Quantidade: </span>
-                  {food.quantidade}
-                </p>
-              </div>
-            );
-          });
-        })}
+    <div
+      style={{
+        backgroundColor: "#ffecde",
+        backgroundSize: "100vw 100vh",
+        height: "100%",
+        textAlign: "-webkit-center",
+        fontFamily: "Mocondo",
+        fontSize: "20px",
+      }}
+    >
+      <div
+        style={{
+          fontFamily: "Macondo",
+          fontSize: "50px",
+          paddingTop: "30px",
+          paddingBottom: "20px",
+        }}
+      >
+        <h1>Meus Pedidos</h1>
       </div>
+
+      {orders.map((currentOrder) => {
+        return currentOrder.pedido.map((food) => {
+          return (
+            <div>
+              <img
+                alt={food.prato}
+                src={food.imagem}
+                style={{ paddingTop: "50px" }}
+              />
+              <h2
+                style={{
+                  paddingTop: "10px",
+                  fontFamily: "Macondo",
+                  fontSize: "40px",
+                }}
+              >
+                {food.prato}
+              </h2>
+
+              <p>
+                <span
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: "bolder",
+                    fontFamily: "Macondo",
+                  }}
+                >
+                  Quantidade:
+                </span>
+                {food.quantidade}
+              </p>
+            </div>
+          );
+        });
+      })}
     </div>
   );
 }
