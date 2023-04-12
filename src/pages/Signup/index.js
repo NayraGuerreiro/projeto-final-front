@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
-import fundo from "../../images/fundo.jpg";
-
+import * as S from "./styles";
 export function Signup() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -28,28 +27,11 @@ export function Signup() {
   }
 
   return (
-    <div
-      style={{
-        textAlign: "-webkit-center",
-        flexDirection: "column",
-        display: "flex",
-        justifyContent: "center",
-        backgroundImage: `url(${fundo})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "100vw 100vh",
-        height: "96vh",
-      }}
-    >
-      <div
-        style={{
-          fontSize: "70px",
-          fontFamily: "Macondo",
-          paddingTop: "120px",
-        }}
-      >
+    <S.Container>
+      <S.Title>
         <h1>Cadastro</h1>
-      </div>
-      <div style={{ width: "400px", alignSelf: "center" }}>
+      </S.Title>
+      <S.Form>
         <form
           onSubmit={handleSubmit}
           class="mt-8 space-y-6"
@@ -104,17 +86,11 @@ export function Signup() {
             value={form.confirmPassword}
             onChange={handleChange}
           />
-          <div
-            style={{
-              fontFamily: "Macondo",
-              fontSize: "20px",
-              fontWeight: "bolder",
-            }}
-          >
+          <S.Button>
             <button type="submit">Finalizar Cadastro</button>
-          </div>
+          </S.Button>
         </form>
-      </div>
-    </div>
+      </S.Form>
+    </S.Container>
   );
 }

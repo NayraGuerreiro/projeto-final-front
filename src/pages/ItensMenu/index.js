@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { api } from "../../api/api";
 import { AuthContext } from "../../contexts/authContext";
+import * as S from "./styles";
 
 import { Link } from "react-router-dom";
 export function ItensMenu() {
@@ -22,50 +23,47 @@ export function ItensMenu() {
     fetchMenu();
   }, [setMenu]);
   return (
-    <div class=" bg-[#ffecde]">
-      <div class="text-center py-3 text-7xl tracking-widest font-normal antialiased border-b border-orange-300 mx-20 py-10">
-        <h1 style={{ fontFamily: "Macondo", marginTop: "20px" }}>Narani</h1>
+    <S.Container>
+      <S.Title>
+        <h1>Narani</h1>
+      </S.Title>
 
-        <div class="w-20 inline-block"></div>
-
-        {loggedInUser && loggedInUser.user.role === "ADMIN" ? (
-          <div
-            class="text-center py-3 text-2xl tracking-widest  antialiased  mx-20 py-10"
-            style={{ fontFamily: "Macondo" }}
-          >
+      {loggedInUser && loggedInUser.user.role === "ADMIN" ? (
+        <S.TextContainer>
+          <S.SubTitle>
             <Link to={`/createfood`}>
               <button>Criar Prato</button>
             </Link>
-          </div>
-        ) : null}
-      </div>
+          </S.SubTitle>
+        </S.TextContainer>
+      ) : null}
+
       {menu.map((currentMenu) => {
         return (
-          <div class=" px-4 border-b border-orange-300 mx-20  flex-col">
-            <div class="text-center py-8">
-              <h3
-                class="text-2xl font-bold tracking-wider"
-                style={{ fontFamily: "Macondo" }}
-              >
-                {currentMenu.prato}
-              </h3>
+          <div>
+            <div style={{ display: "flex", width: "100%" }}>
+              <S.TextContainer style={{ paddingBottom: "20px" }}>
+                <S.SubTitle>
+                  <h3>{currentMenu.prato}</h3>
+                </S.SubTitle>
+              </S.TextContainer>
             </div>
-            <div class="flex flex-row w-full">
-              <div class="w-48 h-48 m-10 mt-0 ">
-                <img
-                  class="w-48 h-48 shadow-2xl shadow-gray-900"
-                  alt="foto do prato"
-                  src={currentMenu.imagem}
-                />
-              </div>
-              <div
-                class="w-3/5 pl-10 mt-10 mb-10"
-                style={{ fontFamily: "Macondo", fontSize: "20px" }}
-              >
+
+            <div>
+              <S.Image alt="foto do prato" src={currentMenu.imagem} />
+            </div>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <S.Paragraph>
                 <p>
-                  <b class="tracking-widest">Descrição:</b>{" "}
-                  {currentMenu.descrição}
+                  <b>Descrição:</b> {currentMenu.descrição}
                 </p>
+
                 <p>
                   <b>Porção:</b> {currentMenu.quantidade}
                 </p>
@@ -73,49 +71,30 @@ export function ItensMenu() {
                 <p>
                   <b>Tempo de preparo:</b> {currentMenu.preparo}
                 </p>
+
                 <p>
                   <b>Calorias:</b> {currentMenu.calorias}
                 </p>
-              </div>
-              <div class=" w-1/12 flex items-center justify-end">
-                <div
-                  style={{
-                    fontFamily: "Macondo",
-                    fontSize: "20px",
-                    fontWeight: "bolder",
-                    borderRadius: "10px",
-                    border: "solid 2px #f09d38",
-                    padding: "5px",
-                  }}
-                >
-                  <Link to={`/details/${currentMenu._id}`}>
-                    <button class="tracking-wider">Detalhes</button>
+              </S.Paragraph>
+            </div>
+
+            <div>
+              <S.Button>
+                <Link to={`/details/${currentMenu._id}`}>
+                  <button class="tracking-wider">Detalhes</button>
+                </Link>
+              </S.Button>
+              {loggedInUser && loggedInUser.user.role === "ADMIN" ? (
+                <S.Button>
+                  <Link to={`/edit/${currentMenu._id}`}>
+                    <button>Gerenciar</button>
                   </Link>
-                </div>
-                {loggedInUser && loggedInUser.user.role === "ADMIN" ? (
-                  <div>
-                    <div
-                      style={{
-                        fontFamily: "Macondo",
-                        fontSize: "20px",
-                        fontWeight: "bolder",
-                        borderRadius: "10px",
-                        border: "solid 2px #f09d38",
-                        padding: "5px",
-                        marginLeft: "20px",
-                      }}
-                    >
-                      <Link to={`/edit/${currentMenu._id}`}>
-                        <button>Gerenciar</button>
-                      </Link>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
+                </S.Button>
+              ) : null}
             </div>
           </div>
         );
       })}
-    </div>
+    </S.Container>
   );
 }
