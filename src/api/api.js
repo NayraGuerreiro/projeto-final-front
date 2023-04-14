@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiURLs = {
-  development: "http://localhost:4000/api",
+  development: "http://localhost:4000",
   production: "https://projeto-narani.cyclic.app",
 };
 
