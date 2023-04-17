@@ -2,17 +2,30 @@
 
 Front-end for food order app (**mobile** and **web**)!
 
+Test our website:[https://projeto-narani.netlify.app/]
+
 # About the project
 
 This project has been created in the third module at Ironhack São Paulo - Web Development Bootcamp.
 
 # Features
 
-- Create and Update User
+- Create User
 - Create, Delete or Update Dish
 - Report all dishes or especific dish
 - Create or delete order
 - Orders log
+
+#Technologies
+- Node.Js
+- JavaScript
+- React.Js
+- StyledComponents
+- tailwindcss
+- MongoDB
+- Bcrypt
+- Express.Js
+- Express-JWT 
 
 # Developers GitHub
 
@@ -22,9 +35,9 @@ This project has been created in the third module at Ironhack São Paulo - Web D
 
 # NARANI SERVER
 
-Back-end project for food order app (**mobile** and **web**)!
+Back-end project 
 
-[Click here](https://github.com/nikolasMendes/NARANI-back-end)
+[Click here](https://github.com/NayraGuerreiro/projeto-final-back)
 
 # Presentation
 
@@ -34,6 +47,6 @@ Back-end project for food order app (**mobile** and **web**)!
 
 To run the application on your localhost, clone the repo and then execute the commands below:
 
-- `$ git clone [https://github.com/nikolasMendes/NARANI-front-end](https://github.com/nikolasMendes/NARANI-front-end)`
-- `$ cd NARANI-front-end npm install`
+- `$ git clone [https://github.com/NayraGuerreiro/projeto-final-front.git]`
+- `$ cd projeto-final-front npm install`
 - `$ npm run dev`
