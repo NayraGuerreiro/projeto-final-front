@@ -12,12 +12,6 @@ export function Signup() {
     confirmPassword: "",
   });
 
-  function text() {
-    alert(
-      "A Senha deve ter: 1 letra maiúscula, 1 número(1,2,3),  1 caracter especial(@,#,$) "
-    );
-  }
-
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
@@ -79,7 +73,6 @@ export function Signup() {
             class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             value={form.password}
             onChange={handleChange}
-            onClick={text}
           />
 
           <label htmlFor="formConfirmPassword" class="sr-only">
