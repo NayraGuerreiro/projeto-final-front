@@ -31,7 +31,3 @@ export const Button = styled.button`
   font-weight: bold;
   padding: 5px 0px 0px 20px;
 `;
-
-export const Paragraph = styled.div`
-  text-align: start;
-`;
