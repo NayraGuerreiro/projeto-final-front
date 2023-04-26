@@ -31,3 +31,12 @@ export const Button = styled.button`
   font-weight: bold;
   padding: 5px 0px 0px 20px;
 `;
+
+export const InfoLabel = styled.div`
+  font-family: "Macondo";
+  font-size: 18px;
+  color: black;
+  display: none;
+  border: solid red 1px;
+  display: ${(props) => (props.clicked === true ? "contents" : "none")};
+`;

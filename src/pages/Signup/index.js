@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import * as S from "./styles";
@@ -11,6 +11,7 @@ export function Signup() {
     password: "",
     confirmPassword: "",
   });
+  const [isOpen, setIsOpen] = useState(false);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -21,11 +22,23 @@ export function Signup() {
 
     try {
       await api.post("/user/signup", { ...form });
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
   }
+
+  function clicked() {
+    isOpen === false ? setIsOpen(true) : setIsOpen(false);
+  }
+
+  function Close() {
+    if (isOpen === true) {
+      setIsOpen(false);
+    }
+  }
+
+  useEffect(() => {}, [isOpen]);
 
   return (
     <S.Container>
@@ -47,6 +60,7 @@ export function Signup() {
             class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             value={form.name}
             onChange={handleChange}
+            onClick={Close}
           />
 
           <label htmlFor="formEmail" class="sr-only">
@@ -60,6 +74,7 @@ export function Signup() {
             class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             value={form.email}
             onChange={handleChange}
+            onClick={Close}
           />
 
           <label htmlFor="formPassword" class="sr-only">
@@ -73,7 +88,16 @@ export function Signup() {
             class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             value={form.password}
             onChange={handleChange}
+            onClick={clicked}
           />
+          <S.InfoLabel clicked={isOpen}>
+            <label for="password">
+              <b>A Senha deve conter:</b>
+              <p>* caracter especial</p>
+              <p>* número e </p>
+              <p>* letra maiúscula.</p>
+            </label>
+          </S.InfoLabel>
 
           <label htmlFor="formConfirmPassword" class="sr-only">
             Confirmação de senha
